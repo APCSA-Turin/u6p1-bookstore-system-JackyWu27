@@ -33,12 +33,13 @@ public class Book{
         this.author = author;
     }
 
-    public int getYearPublished(int yearPublished) {
-        return yearPublished;
+
+    public void setYearPublished(int yearPublished) {
+        this.yearPublished = yearPublished;
     }
 
-    public void setYearPublished() {
-        this.yearPublished = yearPublished;
+    public int getYearPublished() {
+        return yearPublished;
     }
 
     public String getIsbn() {

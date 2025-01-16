@@ -49,8 +49,8 @@ public class User{
     } //returns a booklist for the user, if empty, output "empty"
 
     public String userInfo(){
-        String info = "Name: " + name + "\nID: " + Id + "\nBooks:\n ";
-        info += bookListInfo();
+        String info = "Name: " + name + "\nId: " + Id + "\nBooks: ";
+        info += "\n" + bookListInfo();
         return info;
         
     } //returns  "Name: []\nID: []\nBooks:\n[]"
