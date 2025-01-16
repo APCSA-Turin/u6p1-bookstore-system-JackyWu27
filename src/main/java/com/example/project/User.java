@@ -11,27 +11,27 @@ public class User{
         this.name = name;
         this.Id = Id;
     }
-    public String getName() {
+    public String getName() { //returns the name of the user
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name) {//changes the name of the user
         this.name = name;
     }
 
-    public String getId() {
+    public String getId() {//returns the Id of the user
         return Id;
     }
 
-    public void setId(String Id) {
+    public void setId(String Id) {//changes the Id of the user
         this.Id = Id;
     }
 
-    public Book [] getBooks() {
+    public Book [] getBooks() {//returns the books that are borrowed the user
         return books;
     }
 
-    public void setBooks(Book[] books) {
+    public void setBooks(Book[] books) {//changes the books that are borrowed the user
         this.books = books;
     }
 
