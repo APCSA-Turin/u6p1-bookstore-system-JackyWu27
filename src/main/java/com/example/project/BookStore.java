@@ -8,19 +8,19 @@ public class BookStore{
     
     public BookStore () {}    
 
-    public User[] getUsers(){
+    public User[] getUsers(){ //returns the users in the users array
         return users;
     }
 
-    public void setUsers(User[] users){
+    public void setUsers(User[] users){ //sets the users in the users array to another array provided by the user
         this.users = users;
     }
 
-    public Book[] getBooks(){
+    public Book[] getBooks(){ //returns the books in the books array
         return books;
     }
 
-    public void addUser(User user){
+    public void addUser(User user){ //adds an user to the users array in the first empty space
         int found = 0;
         User [] temp = new User[users.length];
         for (int c = 0; c < users.length; c++) {
@@ -34,7 +34,7 @@ public class BookStore{
         users = temp;
     } 
 
-    public void removeUser(User user){
+    public void removeUser(User user){ //removes an user from the users array and shifts the users after them one index down
         int found = -1;
         for(int c = 0; c < users.length; c++){
             if (users[c] == user) {
@@ -56,7 +56,7 @@ public class BookStore{
 
     }
 
-    public void consolidateUsers(){
+    public void consolidateUsers(){ //moves all empty spaces to the end of the users array
         User [] temp = new User [users.length];
         int count = 0;
         for (User espace : users) {
@@ -68,7 +68,7 @@ public class BookStore{
         users = temp;
     }
 
-    public void addBook(Book book){
+    public void addBook(Book book){ //adds an book to the books array in the first empty space
         int found = 0;
         Book [] temp = new Book[books.length];
         for (int c = 0; c < books.length; c++) {
@@ -82,7 +82,7 @@ public class BookStore{
         books = temp;
     }
 
-    public void insertBook(Book book, int index){
+    public void insertBook(Book book, int index){ //adds an book to the books array in the index inputted by the user and moves the previous book and the books after it up one index
         Book [] temp = new Book [books.length];
         for (int c = 0; c < books.length; c ++) {
             if (c < index) {
@@ -98,7 +98,7 @@ public class BookStore{
         books = temp;
     }
 
-    public void removeBook(Book book){
+    public void removeBook(Book book){ //removes an book from the books array and shifts the books after it one index down
         int found = -1;
         for(int c = 0; c < books.length; c++){
             if (books[c] == book) {

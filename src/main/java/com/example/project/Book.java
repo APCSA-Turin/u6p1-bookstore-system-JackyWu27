@@ -17,44 +17,43 @@ public class Book{
         this.isbn = isbn;
         this.quantity = quantity;
     }
-    public String getTitle() {
+    public String getTitle() { //returns the title of the book
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(String title) { //changes the title of the book to something else
         this.title = title;
     }
 
-    public String getAuthor() {
+    public String getAuthor() { //returns the author of the book
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(String author) { //changes the author of the book to someone else
         this.author = author;
     }
 
-
-    public void setYearPublished(int yearPublished) {
-        this.yearPublished = yearPublished;
-    }
-
-    public int getYearPublished() {
+    public int getYearPublished() { //returns the year the book was published
         return yearPublished;
     }
 
-    public String getIsbn() {
+    public void setYearPublished(int yearPublished) { //changes when the book was published to another year
+        this.yearPublished = yearPublished;
+    }
+
+    public String getIsbn() { //returns the ibsn of the book
         return isbn;
     }
 
-    public void setIsbn(String isbn) {
+    public void setIsbn(String isbn) { //changes the isbn of the book to something else
         this.isbn = isbn;
     }
 
-    public int getQuantity() {
+    public int getQuantity() { //returns how many books are in the Bookstore
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(int quantity) { //changes the quantity of how many books are in the Bookstore
         this.quantity = quantity;
     }
 
