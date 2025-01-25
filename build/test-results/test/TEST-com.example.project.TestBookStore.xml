@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.project.TestBookStore" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-01-16T14:27:07" hostname="codespaces-d7542b" time="0.06">
+<testsuite name="com.example.project.TestBookStore" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-01-25T02:26:29" hostname="codespaces-d7542b" time="0.015">
   <properties/>
-  <testcase name="testAddBook()" classname="com.example.project.TestBookStore" time="0.033"/>
-  <testcase name="testAddUser()" classname="com.example.project.TestBookStore" time="0.003"/>
-  <testcase name="testInsertBooK()" classname="com.example.project.TestBookStore" time="0.002"/>
+  <testcase name="testAddBook()" classname="com.example.project.TestBookStore" time="0.002"/>
+  <testcase name="testAddUser()" classname="com.example.project.TestBookStore" time="0.001"/>
+  <testcase name="testInsertBooK()" classname="com.example.project.TestBookStore" time="0.001"/>
   <testcase name="testRemoveBook()" classname="com.example.project.TestBookStore" time="0.002"/>
   <testcase name="testRemoveUser()" classname="com.example.project.TestBookStore" time="0.001"/>
   <testcase name="testConsolidateUsers()" classname="com.example.project.TestBookStore" time="0.001"/>

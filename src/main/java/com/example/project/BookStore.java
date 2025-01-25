@@ -1,4 +1,5 @@
 package com.example.project;
+import java.util.Scanner;
 
 public class BookStore{
 
@@ -136,4 +137,22 @@ public class BookStore{
         return temp;
     } //you are not tested on this method but use it for debugging purposes
 
+    public void run() {  
+        Scanner scanner = new Scanner(System.in);
+        String answer = "";
+        while (!answer.equals("0")) {
+        System.out.println("Please choose an option:" + "\n" +"0. Exit" + "\n" +"1. Add new book" + "\n" +"2. Increase book quantity" + "\n" +"3. Search for a book" + "\n" +"4. Show all books" + "\n" +"5. Add an user" + "\n" +"6. Show all users" + "\n" +"7. Check out a book" + "\n" +"8. Check in a book");
+        answer = scanner.nextLine();  
+            if (answer.equals("1")) {
+                
+            }
+            if (answer.equals("2")) {
+                
+            }
+            if (answer.equals("3")) {
+                
+            }
+        }
+    }
+    
 }
