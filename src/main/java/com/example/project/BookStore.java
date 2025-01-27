@@ -122,17 +122,21 @@ public class BookStore{
     }
        
     public String bookStoreBookInfo(){
-        String temp = "";
+        String temp = "null";
         for (Book book : books) {
-            temp = book.bookInfo();
+            if (book != null) {
+                temp = book.bookInfo();
+            }
         }
         return temp;
     } //you are not tested on this method but use it for debugging purposes
 
     public String bookStoreUserInfo(){
-        String temp = "";
+        String temp = "null";
         for (User user : users) {
-            temp = user.userInfo();
+            if (user != null) {
+                temp = user.userInfo();
+            }
         }
         return temp;
     } //you are not tested on this method but use it for debugging purposes
@@ -144,15 +148,133 @@ public class BookStore{
         System.out.println("Please choose an option:" + "\n" +"0. Exit" + "\n" +"1. Add new book" + "\n" +"2. Increase book quantity" + "\n" +"3. Search for a book" + "\n" +"4. Show all books" + "\n" +"5. Add an user" + "\n" +"6. Show all users" + "\n" +"7. Check out a book" + "\n" +"8. Check in a book");
         answer = scanner.nextLine();  
             if (answer.equals("1")) {
-                
+                System.out.println("Please enter the title:");
+                String ti = scanner.nextLine();
+                System.out.println("Please enter the author:");
+                String au = scanner.nextLine();
+                System.out.println("Please enter the year the book was published:");
+                int ye = scanner.nextInt();
+                System.out.println("Please enter the isbn:");
+                scanner.nextLine();
+                String is = scanner.nextLine();
+                System.out.println("Please enter the quantity:");
+                int qu = scanner.nextInt();
+                Book n = new Book(ti, au, ye, is, qu);
+                addBook(n);
             }
             if (answer.equals("2")) {
-                
+                System.out.println("Please enter the title of the book:");
+                String find = scanner.nextLine();
+                Boolean bookFound = false;
+                for (Book book : books) {
+                    if (book.getTitle() == find) {
+                        bookFound = true;
+                        System.out.println("How many books would you like to add?");
+                        int inc = scanner.nextInt();
+                        book.setQuantity(book.getQuantity() + inc);
+                    }
+                }
+                if (!bookFound) {
+                    System.out.println("There is no book with that title.");
+                }
             }
             if (answer.equals("3")) {
-                
+                System.out.println("Please enter the title of the book:");
+                String find = scanner.nextLine();
+                Boolean bookFound = false;
+                for (Book book : books) {
+                    if (book.getTitle() == find) {
+                        bookFound = true;
+                        System.out.println(book.bookInfo());
+                    }
+                }
+                if (!bookFound) {
+                    System.out.println("There is no book with that title.");
+                }
+            }
+            if (answer.equals("4")) {
+                System.out.println(bookStoreBookInfo());
+            }
+            if (answer.equals("5")) {
+                System.out.println("Please enter the name of the user:");
+                String n = scanner.nextLine();
+                User u = new User(n, IdGenerate.getCurrentId());
+                addUser(u);
+            }
+            if (answer.equals("6")) {
+                System.out.println(bookStoreUserInfo());
+            }
+            if (answer.equals("7")) {
+                System.out.println("Enter the name of the user trying to check out a book:");
+                String n = scanner.nextLine();
+                Boolean userFound = false;
+                for (User user : users) {
+                    if (user.getName() == n) {
+                        userFound = true;
+                        System.out.println("Please enter the title of the book:");
+                        String find = scanner.nextLine();
+                        Boolean bookFound = false;
+                        for (Book book : books) {
+                            if (book.getTitle() == find) {
+                                bookFound = true;
+                                removeBook(book);
+                                int tempQuan = book.getQuantity();
+                                book.setQuantity(1);
+                                user.addBook(book);
+                                book.setQuantity(tempQuan);
+                        }
+                    }
+                    if (!bookFound) {
+                        System.out.println("There is no book with that title.");
+                    }
+                }
+                }
+                if (!userFound) {
+                    System.out.println("There is no user with that name.");
+                }
+            }
+            if (answer.equals("8")) {
+                System.out.println("Enter the name of the user trying to return a book:");
+                String n = scanner.nextLine();
+                Boolean userFound = false;
+                for (User user : users) {
+                    if (user.getName() == n) {
+                        userFound = true;
+                        System.out.println("Please enter the title of the book:");
+                        String find = scanner.nextLine();
+                        Boolean bookFound = false;
+                        for (Book book : user.getBooks()) {
+                            if (book.getTitle() == find) {
+                                bookFound = true;
+                                user.removeBook(book);
+                                Boolean exists = false;
+                                for (Book otherBook : books) {
+                                    if (otherBook.getTitle() == find) {
+                                        exists = true;
+                                        otherBook.setQuantity(otherBook.getQuantity() + 1);
+                                    }
+                                }
+                                if (!exists) {
+                                    addBook(book);
+                                }
+                        }
+                    }
+                    if (!bookFound) {
+                        System.out.println("There is no book with that title.");
+                    }
+                }
+                }
+                if (!userFound) {
+                    System.out.println("There is no user with that name.");
+                }
             }
         }
     }
+
+        public static void main (String[] args) {
+            BookStore b = new BookStore();
+            b.run();
+        }
+    
     
 }

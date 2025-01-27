@@ -35,6 +35,42 @@ public class User{
         this.books = books;
     }
 
+    public void addBook(Book book){ //adds an book to the books array in the first empty space
+        int found = 0;
+        Book [] temp = new Book[books.length];
+        for (int c = 0; c < books.length; c++) {
+            if (found != 1 && books[c] == null) {
+                temp[c] = book;
+                found ++;
+            } else {
+                temp[c] = books[c];
+            }
+        }
+        books = temp;
+    }
+
+    public void removeBook(Book book){ //removes an book from the books array and shifts the books after it one index down
+        int found = -1;
+        for(int c = 0; c < books.length; c++){
+            if (books[c] == book) {
+                found = c;
+                books[c].setQuantity(books[c].getQuantity() - 1);
+            }
+        }
+        if (found != -1 && books[found].getQuantity() < 1 ) {
+            Book [] temp = new Book [books.length - 1];
+            for (int c = 0; c < books.length - 1; c ++) {
+                if (c < found) {
+                    temp[c] = books[c];
+                }
+                if (c >= found && c < books.length) {
+                    temp[c] = books[c + 1];
+                }  
+            }
+            books = temp;
+        }
+    }
+    
     public String bookListInfo(){
         String listInfo = "";
         for (Book b : books) {
